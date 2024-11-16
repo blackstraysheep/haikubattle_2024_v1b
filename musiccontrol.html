@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" type="text/css" href="index.css">
+</head>
+<body>
+    <div class="musicheader">
+        <h4>俳句甲子園 HTML System　Audio Control Panel</h4>
+    </div>
+    <div id="musictop">
+        <p>非公式利用限定　大会等使用不可</p>
+        <div class="wrapper">
+            <div>
+                <div class="musiccontrol-1">
+                    <div class="musictitle">a01:ｵｰﾌﾟﾆﾝｸﾞ</div>
+                    <div class="musictitle"><audio controls src="a_27th俳句甲子園BGM/a01_オープニングビデオBGM_Take the Wing.mp3"></audio></div>
+                </div>
+                <div class="musiccontrol-2">
+                    <div class="musictitle">a02:開会宣言</div>
+                    <div class="musictitle"><audio controls src="a_27th俳句甲子園BGM/a02_開会宣言ファンファーレ_Fanfare for Unveiling Ceremony.mp3"></audio></div>
+                </div>
+                <div class="musiccontrol-1">
+                    <div class="musictitle">a03:勝者登場</div>
+                    <div class="musictitle"><audio controls src="a_27th俳句甲子園BGM/a03_勝者登場_Olympic Award.mp3"></audio></div>
+                </div>
+                <div class="musiccontrol-2">
+                    <div class="musictitle">a04:くじ引き</div>
+                    <div class="musictitle"><audio controls src="a_27th俳句甲子園BGM/a04_くじ引き_Tension 2.mp3"></audio></div>
+                </div>
+                <div class="musiccontrol-1">
+                    <div class="musictitle"><div class="bf">a05:入場(27-)</div></div>
+                    <div class="musictitle"><audio controls src="a_27th俳句甲子園BGM/a05_選手入場_Triumphal Moment.mp3"></audio></div>
+                </div>
+                <div class="musiccontrol-2">
+                    <div class="musictitle">a06:表彰１</div>
+                    <div class="musictitle"><audio controls src="a_27th俳句甲子園BGM/a06_表彰1_Awards to You.mp3"></audio></div>
+                </div>
+                <div class="musiccontrol-1">
+                    <div class="musictitle">a07:表彰２</div>
+                    <div class="musictitle"><audio controls src="a_27th俳句甲子園BGM/a07_表彰2_Merdetheus.mp3"></audio></div>
+                </div>
+                <div class="musiccontrol-2">
+                    <div class="musictitle">a08:表彰３</div>
+                    <div class="musictitle"><audio controls src="a_27th俳句甲子園BGM/a08_表彰3_ヴァイオリンの為のアリア.mp3"></audio></div>
+                </div>
+                <div class="musiccontrol-1">
+                    <div class="musictitle">a09:表彰４</div>
+                    <div class="musictitle"><audio controls src="a_27th俳句甲子園BGM/a09_団体奨励賞表彰_Tiny Traveler.mp3"></audio></div>
+                </div>
+                <div class="musiccontrol-2">
+                    <div class="musictitle">a10:大会講評</div>
+                    <div class="musictitle"><audio controls src="a_27th俳句甲子園BGM/a10_大会講評_Everlasting Happiness.mp3"></audio></div>
+                </div>
+            </div>
+            <div>
+                <div class="musiccontrol-2">
+                    <div class="musictitle">b1:入場(-26)</div>
+                    <div class="musictitle"><audio controls src="b_俳句甲子園BGM/b1_in.mp3"></audio></div>
+                </div>
+                <div class="musiccontrol-1">
+                    <div class="musictitle">b3:退場(-26)</div>
+                    <div class="musictitle"><audio controls src="b_俳句甲子園BGM/b3_out.mp3"></audio></div>
+                </div>
+                <div class="musiccontrol-2">
+                    <div class="musictitle">b4:待機(-25)</div>
+                    <div class="musictitle"><audio controls src="b_俳句甲子園BGM/b4_standby25.mp3"></audio></div>
+                </div>
+                <div class="musiccontrol-1">
+                    <div class="musictitle">b6:待機1(26-)</div>
+                    <div class="musictitle"><audio controls src="b_俳句甲子園BGM/b6_standby26-1.mp3"></audio></div>
+                </div>
+                <div class="musiccontrol-2">
+                    <div class="musictitle">b7:待機2(-26)</div>
+                    <div class="musictitle"><audio controls src="b_俳句甲子園BGM/b7_standby26-2.mp3"></audio></div>
+                </div>
+                <div class="musiccontrol-1">
+                    <div class="musictitle">　</div>
+                    <div class="musictitle">　</div>
+                </div>
+                <div class="musiccontrol-2">
+                    <div class="musictitle">13:正規入場(-25)</div>
+                    <div class="musictitle"><audio controls src="正規俳句甲子園BGM/13-選手入場.mp3"></audio></div>
+                </div>
+                <div class="musiccontrol-1">
+                    <div class="musictitle"><div class="bf">15:正規退場(-25)</div></div>
+                    <div class="musictitle"><audio controls src="正規俳句甲子園BGM/15-選手退場.mp3"></audio></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </body>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {           // ドキュメントの play イベント
+            document.addEventListener('play', (e) => {                  // 全ての audio 要素を取得
+                const audios = document.querySelectorAll('audio');      // それぞれの audio 要素で以下を実行
+                audios.forEach((audio) => {                             // play イベントが発生した要素が自身でなければ停止
+                    if(audio !== e.target) {
+                        audio.pause();
+                        audio.currentTime = 0;                          //再生位置を先頭に戻す
+                    }
+                });
+            }, true);                                                   // addEventListener()の第3引数（useCapture）を true に
+        }, false);
+    </script>
+</html>
